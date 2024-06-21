@@ -1,0 +1,195 @@
+<!-------------------------------------------------------
+
+    P R E N O T A Z I O N I
+
+--------------------------------------------------------->
+
+<div class="container mt-5">
+
+    <div class="row mb-5">
+        <div class="d-flex align-items-center">
+            <h2 class="my-4 me-5">Prenotazioni</h2>
+            <button type="button" class="btn_3" data-bs-toggle="modal" data-bs-target="#exampleModal">Aggiungi</button>
+
+        </div>
+    </div>
+
+    <!-- versione mobile fino a 992px -->
+    <div *ngIf="mobile">
+        <div class="row d-flex border-bottom p-3 align-content-center align-items-center"
+            *ngFor="let prenotazione of prenotazioni">
+
+            <div class="col-4">
+                <button [routerLink]="['/prenotazioni', prenotazione.id]" class="btn_2">Modifica</button>
+            </div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-4 fw-bold">Nome ospite:</div>
+                    <div class="col-8">{{ prenotazione.nomeCliente }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-4 fw-bold">Adulti:</div>
+                    <div class="col-8 ">{{ prenotazione.adulti }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-4 fw-bold">Bambini:</div>
+                    <div class="col-8 ">{{ prenotazione.bambini }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-4 fw-bold">Check-in:</div>
+                    <div class="col-8 ">{{formatData( prenotazione.checkIn) }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-4 fw-bold">Check-out:</div>
+                    <div class="col-8 ">{{ formatData(prenotazione.checkOut) }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-4 fw-bold">Costo:</div>
+                    <div class="col-8 ">€ {{ prenotazione.costoSoggiorno }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-4 fw-bold">Piattaforma:</div>
+                    <div class="col-8 ">{{ prenotazione.piattaforma }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div *ngIf="!mobile">
+        <div class="row d-flex border-bottom p-4">
+            <div class="col-2"></div>
+            <div class="col-2 fw-bold">Nome ospite</div>
+            <div class="col-1 text-center fw-bold">Adulti</div>
+            <div class="col-1 text-center fw-bold">Bambini</div>
+            <div class="col-2 fw-bold">Check-in</div>
+            <div class="col-2 fw-bold">Check-out</div>
+            <div class="col-1 text-center fw-bold">Costo</div>
+            <div class="col-1 fw-bold text-center">Piattaforma</div>
+        </div>
+
+        <div class="row d-flex border-bottom p-3 align-content-center align-items-center"
+            *ngFor="let prenotazione of prenotazioni">
+
+            <div class="col-2">
+                <button [routerLink]="['/prenotazioni', prenotazione.id]" class="btn_2">Modifica</button>
+            </div>
+            <div class="col-2">{{ prenotazione.nomeCliente }}</div>
+            <div class="col-1 text-center">{{ prenotazione.adulti }}</div>
+            <div class="col-1 text-center">{{ prenotazione.bambini }}</div>
+            <div class="col-2">{{ formatData(prenotazione.checkIn) }}</div>
+            <div class="col-2">{{ formatData(prenotazione.checkOut) }}</div>
+            <div class="col-1 text-center">€ {{ prenotazione.costoSoggiorno| number:'1.2-2' }}</div>
+            <div class="col-1 text-center">{{ prenotazione.piattaforma }}</div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal for adding a new ospite(AGGIUNGI PRENOTAZIONE) -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    data-bs-backdrop="static" data-bs-keyboard="false">
+
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <h5 class="display-6 text-center mt-3" id="">Aggiungi Prenotazione</h5>
+            <div class="modal-body">
+                <form #newClienteForm="ngForm" (ngSubmit)="addCliente(newClienteForm)">
+
+                    <div class="row">
+                        <div class="col-8">
+                            
+                            <div class="row my-3 border-bottom p-3">
+                                <div class="col-4">
+                                    <label for="nomeCliente" class="form-label fw-bold">Nome ospite</label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" class="form-control" id="nomeCliente" name="nomeCliente" ngModel
+                                        required>
+                                </div>
+                            </div>
+
+                            <div class="row my-3 border-bottom p-3">
+                                <div class="col-4">
+                                    <label for="adulti" class="form-label fw-bold">Adulti</label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="number" class="form-control" id="adulti" name="adulti" ngModel
+                                        required>
+                                </div>
+                            </div>
+
+                            <div class="row my-3 border-bottom p-3">
+                                <div class="col-4">
+                                    <label for="bambini" class="form-label fw-bold">Bambini</label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="number" class="form-control" id="bambini" name="bambini" ngModel
+                                        required>
+                                </div>
+                            </div>
+
+                            <div class="row my-3 border-bottom p-3">
+                                <div class="col-4">
+                                    <label for="checkIn" class="form-label fw-bold">Check-in</label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="date" class="form-control" id="checkIn" name="checkIn" ngModel
+                                        required>
+                                </div>
+                            </div>
+
+                            <div class="row my-3 border-bottom p-3">
+                                <div class="col-4">
+                                    <label for="checkOut" class="form-label fw-bold">Check-out</label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="date" class="form-control" id="checkOut" name="checkOut" ngModel
+                                        required>
+                                </div>
+                            </div>
+
+                            <div class="row my-3 border-bottom p-3">
+                                <div class="col-4">
+                                    <label for="costoSoggiorno" class="form-label fw-bold">Costo soggiorno</label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="number" class="form-control" id="costoSoggiorno" name="costoSoggiorno"
+                                        ngModel required>
+                                </div>
+                            </div>
+
+                            <div class="row my-3 border-bottom p-3">
+                                <div class="col-4">
+                                    <label for="piattaforma" class="form-label fw-bold">Piattaforma</label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" class="form-control" id="piattaforma" name="piattaforma" ngModel
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-12"></div>
+                                <div class="col-3">
+                                    <button type="submit" class="ms-1 btn_3 mb-3" data-bs-dismiss="modal" data-bs-toggle="modal">Aggiungi</button>
+                                    <button type="button" class="ms-1 btn_2" data-bs-dismiss="modal">Chiudi</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

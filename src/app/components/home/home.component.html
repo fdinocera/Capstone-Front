@@ -1,0 +1,72 @@
+<div class="">
+    <div class="container" *ngIf="prenotazione==null">
+        <div class="row justify-content-center">
+            <div class="col-10 col-md-8 text-center mt-5 mb-3">
+                <img src="./../../../assets/panoramica45-high-resolution-logo-transparent_2.png">
+            </div>
+            <div class="fs-1 text-center mt-5">
+                Nessun soggiorno in corso
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5" *ngIf="prenotazione">
+        <div class="row">
+
+            <div class="p-5 shadow bg-primary-color">
+                <div class="row">
+                    <div class="col-9 col-md-4 bg-primary-color">
+                        <img src="./../../../assets/panoramica45-high-resolution-logo-transparent_2.png"
+                            class="img-fluid rounded-start bg-primary-color" alt="logo">
+                    </div>
+
+                    <div class="col-md-8 bg-primary-color mt-5 mt-md-0">
+                        <div class="bg-primary-color ms-md-3">
+                            <h5 class="text-color fs-1 bg-primary-color">Soggiorno in corso</h5>
+                            <p class="text-color bg-primary-color">Nome ospite: {{prenotazione.nomeCliente}}
+                            </p>
+                            <p class="text-color bg-primary-color">Adulti: {{prenotazione.adulti}}</p>
+                            <p class="text-color bg-primary-color">Bambini: {{prenotazione.bambini}}</p>
+                            <p class="text-color bg-primary-color">Data check-in: {{formatData(prenotazione.checkIn)}}
+                            </p>
+                            <p class="text-color bg-primary-color">Data check-out: {{formatData(prenotazione.checkOut)}}
+                            </p>
+                            <p class="text-color bg-primary-color">Piattaforma di acquisto: {{prenotazione.piattaforma}}
+                            </p>
+
+                            <div class="d-flex bg-primary-color">
+                                <p class="bg-primary-color"> <input type="checkbox"
+                                        [(ngModel)]="soggiornoCorrente[0].comunicazioneDatiPS"></p>
+                                <div class="text-color bg-primary-color"
+                                    [ngStyle]="{'color': soggiornoCorrente[0].comunicazioneDatiPS ?'#A7D4AD' : 'red'}">
+                                    &nbsp;&nbsp;Comunicazione dati PS ({{scadenzaComunicazioneDatiPS()}})
+                                </div>
+                            </div>
+
+                            <div class="d-flex bg-primary-color">
+                                <p class="bg-primary-color">
+                                    <input class="bg-primary-color" type="checkbox"
+                                        [(ngModel)]="soggiornoCorrente[0].riversamentoSomme">
+                                </p>
+                                <label class="text-color bg-primary-color">&nbsp; Riversamento somme da broker</label>
+                            </div>
+
+                            <div class="d-flex bg-primary-color">
+                                <label class="text-color bg-primary-color me-2">Problema ospite</label>
+                                <p class=" bg-primary-color"> <input class=" bg-primary-color" type="text"
+                                        [(ngModel)]="soggiornoCorrente[0].problemaOspite" id="problema" name="problema"
+                                        required class="border border-1 rounded rounded-1"></p>
+                            </div>
+
+                            <div class="d-flex bg-primary-color">
+                                <label class="text-color bg-primary-color me-2">Risoluzione problema</label>
+                                <input type="text" [(ngModel)]="soggiornoCorrente[0].soluzioneOspite" id="risoluzione"
+                                    name="risoluzione" required class="border border-1 rounded rounded-1 w-50">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

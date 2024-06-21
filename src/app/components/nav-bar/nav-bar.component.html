@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg position-sticky top-0 border-bottom bg-body">
+
+	<div class="container-fluid col-9">
+		<a class="navbar-brand" href="#">
+			<img src="../../../assets/logo_piccolo.png" width="80px">
+		</a>
+
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+				<li *ngIf="user" class="nav-item fs-6">
+					<a class="nav-link active" aria-current="page" [routerLink]="['/']" routerLinkActive="active"
+						[routerLinkActiveOptions]="{ exact: true }">Home</a>
+				</li>
+
+				<li *ngIf="!user" class="nav-item fs-6">
+					<a class="nav-link" [routerLink]="['/register']" routerLinkActive="active">Registrati</a>
+				</li>
+
+				<li *ngIf="!user" class="nav-item fs-6">
+					<a class="nav-link" [routerLink]="['/login']" routerLinkActive="active">Login</a>
+				</li>
+
+				<li *ngIf="user" class="nav-item fs-6">
+					<a class="nav-link" [routerLink]="['/prenotazioni']" routerLinkActive="active">Prenotazioni</a>
+				</li>
+
+				<li *ngIf="user" class="nav-item fs-6">
+					<a class="nav-link" [routerLink]="['/statistiche']" routerLinkActive="active">Statistiche</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="container-fluid col-3 justify-content-end align-items-center">
+		<div *ngIf="user" class="text-dark me-4 fs-6 fw-bold welcomeText">
+			Benvenuto {{ user.nome }}
+		</div>
+		<button type="button" class="btn_3" *ngIf="user" (click)="logout()">
+			Logout
+		</button>
+	</div>
+</nav>

@@ -1,0 +1,68 @@
+<!---------------------------------------------------------
+
+    A G G I N G I   P R E N O T A Z I O N E
+
+---------------------------------------------------------->
+
+
+<div class="container mt-4">
+    <div class="card client-details h-100 text-center p-5 shadow">
+
+        <h1 class="display-6 mb-5 font-weight-bold">Aggiungi Prenotazione</h1>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+
+                <div class="modal-body">
+                    <form #modificaForm="ngForm">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td class="fw-bold">Nome ospite</td>
+                                    <td><input type="text" id="nomeCliente" name="nomeCliente" required
+                                            class="form-control" [(ngModel)]="prenotazione.nomeCliente"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Adulti</td>
+                                    <td><input type="number" id="adulti" name="adulti" required class="form-control"
+                                            [(ngModel)]="prenotazione.adulti"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Bambini</td>
+                                    <td><input type="number" id="bambini" name="bambini" required class="form-control"
+                                            [(ngModel)]="prenotazione.bambini"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Check-in</td>
+                                    <td><input type="date" id="checkIn" name="checkIn" required class="form-control"
+                                            [(ngModel)]="prenotazione.checkIn"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Check-out</td>
+                                    <td><input type="date" id="checkOut" name="checkOut" required class="form-control"
+                                            [(ngModel)]="prenotazione.checkOut"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Piattaforma</td>
+                                    <td><input type="text" id="piattaforma" name="piattaforma" required
+                                            class="form-control" [(ngModel)]="prenotazione.piattaforma"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Costo soggiorno</td>
+                                    <td><input type="number" id="costoSoggiorno" name="costoSoggiorno" required
+                                            class="form-control" [(ngModel)]="prenotazione.costoSoggiorno"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="col-md-6 mb-3">
+                            <div class="row">
+                                <button (click)="salvaPrenotazione(modificaForm)" class="ms-5 btn_2 me-2">Salva</button>
+                                <button (click)="chiudiForm()" class="btn_2">Chiudi</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
