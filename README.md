@@ -1,15 +1,3 @@
-
-# NOTA: la parte back end è consultabile al seguente link: https://github.com/marcimerca/build_week_2_back
-
-# EPIC ENERGY SERVICES - Parte Front End
-
-## Descrizione del Progetto
-
-## Frontend
-
-E' stato implementato un semplice frontend connesso al backend consultabile al link  https://github.com/marcimerca/build_week_2_back per dimostrare alcune funzionalità della piattaforma. In particolare è stata aggiunta la possibilità dal front end di creare un nuovo cliente (solo per utente "ADMIN"), visualizzare tutti i clienti, i dettagli di ogni cliente con le specifiche fatture, e l'elenco completo delle fatture di tutti i clienti.
-
-
 ## Angular Info
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.12.
