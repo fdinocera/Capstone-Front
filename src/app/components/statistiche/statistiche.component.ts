@@ -10,6 +10,8 @@ import { Chart } from 'chart.js/auto';
 })
 export class StatisticheComponent implements OnInit {
 
+
+
     //flag mobile
     mobile = false;
 
@@ -48,6 +50,9 @@ export class StatisticheComponent implements OnInit {
     }
 
     creaGrafico(nomeGrafico: string, didascalia: string, datiGrafico: number[]) {
+        
+        Chart.defaults.color= '#A7D4AD';
+        Chart.defaults.font.size=14;
 
         return new Chart(nomeGrafico, {
             type: 'line',
@@ -67,21 +72,14 @@ export class StatisticheComponent implements OnInit {
                         beginAtZero: true
                     }
                 }
-            }
+            },
         });
-
     }
 
     aggiornaGrafico(nomeGrafico: Chart, didascalia: string, datiGrafico: number[]) {
 
-
-        nomeGrafico.data.datasets[0].label = didascalia;
+        nomeGrafico.data.datasets[0].label = didascalia
         nomeGrafico.data.datasets[0].data = datiGrafico;
-
-
-        // Chart.defaults.backgroundColor = '#FF0000';
-        // Chart.defaults.borderColor = '#FF0000';
-        // Chart.defaults.color = '#ff0000';
         nomeGrafico.update();
     }
 
@@ -189,9 +187,9 @@ export class StatisticheComponent implements OnInit {
             //incassi su base mensile e incasso annuo
             this.incassiSuBaseMensile();
 
-            this.aggiornaGrafico(this.ch1, "Occupazione immobile", this.mesi);
-            this.aggiornaGrafico(this.ch2, "Prezzo medio giornaliero", this.pmgMese);
-            this.aggiornaGrafico(this.ch3, "Incassi", this.incassoMese);
+            this.aggiornaGrafico(this.ch1, "Occupazione immobile - Anno " + this.annoCorrente + " - Soggiorni: " + data.length, this.mesi);
+            this.aggiornaGrafico(this.ch2, "Prezzo medio giornaliero - Anno " + this.annoCorrente + " - Soggiorni: " + data.length, this.pmgMese);
+            this.aggiornaGrafico(this.ch3, "Incassi - Anno " + this.annoCorrente + " - Soggiorni: " + data.length, this.incassoMese);
         });
     }
 }

@@ -7,23 +7,39 @@
 
 <!-- Modale per modifica PRENOTAZIONE -->
 
-<button id="openModalButton" type="button" class="btn_transparent" data-bs-toggle="modal"
-    data-bs-target="#exampleModal">Modifica</button>
+<!-- <button id="openModalButton" type="button" class="btn_transparent" data-bs-toggle="modal"
+    data-bs-target="#exampleModal">Modifica</button> -->
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-    data-bs-backdrop="static" data-bs-keyboard="false">
 
-    <div class="modal-dialog modal-lg">
 
-        <div class="modal-content">
 
-            <h5 class="display-6 text-center mt-3">Modifica Prenotazione</h5>
-            <div class="modal-body  ">
+
+<div *ngIf="prenotazione">
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+        data-bs-backdrop="static" data-bs-keyboard="false"> -->
+    <!-- <div class="bg-body-secondary"> -->
+
+
+
+    <!-- <div class="container "  [ngClass]="{'dark-background': formVisible}" style="max-width:800px"> -->
+    <div class="container dark-background" style="max-width:800px">
+
+        <div class="bg-white rounded-2 ms-5 me-5">
+
+
+            <!-- ultima modifica -->
+            <!-- <div class="modal-dialog modal-lg"> -->
+
+
+            <h5 class="display-6 text-center mt-5">Modifica Prenotazione</h5>
+
+            <div class="modal-body">
 
                 <form #newClienteForm="ngForm">
                     <div class="row">
                         <div class="col-6">
-                            <div class="row my-3 border-bottom p-3">
+                            <!-- <div class="row my-3 border-bottom p-3"> -->
+                            <div class="row my-3 p-3">
                                 <div class="col-4">
                                     <label for="nomeCliente" class="form-label fw-bold">Nome ospite</label>
                                 </div>
@@ -32,8 +48,8 @@
                                         id="nomeCliente" name="nomeCliente" ngModel required>
                                 </div>
                             </div>
-
-                            <div class="row my-3 border-bottom p-3">
+                            <hr>
+                            <div class="row my-3 p-3">
                                 <div class="col-4">
                                     <label for="adulti" class="form-label fw-bold">Adulti</label>
                                 </div>
@@ -42,8 +58,8 @@
                                         id="adulti" name="adulti" ngModel required>
                                 </div>
                             </div>
-
-                            <div class="row my-3 border-bottom p-3">
+                            <hr>
+                            <div class="row my-3 p-3">
                                 <div class="col-4">
                                     <label for="bambini" class="form-label fw-bold">Bambini</label>
                                 </div>
@@ -52,8 +68,8 @@
                                         id="bambini" name="bambini" ngModel required>
                                 </div>
                             </div>
-
-                            <div class="row my-3 border-bottom p-3">
+                            <hr>
+                            <div class="row my-3 p-3">
                                 <div class="col-3">
                                     <label for="checkIn" class="form-label fw-bold">Check-in</label>
                                 </div>
@@ -62,8 +78,8 @@
                                         id="checkIn" name="checkIn" ngModel required>
                                 </div>
                             </div>
-
-                            <div class="row my-3 border-bottom p-3">
+                            <hr>
+                            <div class="row my-3 p-3">
                                 <div class="col-3">
                                     <label for="checkOut" class="form-label fw-bold">Check-out</label>
                                 </div>
@@ -72,18 +88,19 @@
                                         id="checkOut" name="checkOut" ngModel required>
                                 </div>
                             </div>
-
-                            <div class="row my-3 border-bottom p-3">
+                            <hr>
+                            <div class="row my-3 p-3">
                                 <div class="col-5">
-                                    <label for="costoSoggiorno" class="form-label fw-bold">Costo soggiorno</label>
+                                    <label for="costoSoggiorno" class="form-label fw-bold">Costo
+                                        soggiorno</label>
                                 </div>
                                 <div class="col-7">
                                     <input type="number" [(ngModel)]="prenotazione.costoSoggiorno" class="form-control"
                                         id="costoSoggiorno" name="costoSoggiorno" ngModel required>
                                 </div>
                             </div>
-
-                            <div class="row my-3 border-bottom p-3">
+                            <hr>
+                            <div class="row my-3 p-3">
                                 <div class="col-5">
                                     <label for="piattaforma" class="form-label fw-bold">Piattaforma</label>
                                 </div>
@@ -107,9 +124,10 @@
                                         (click)="modificaPrenotazione(newClienteForm, prenotazione.id)"
                                         [routerLink]="['/prenotazioni']">Modifica</button>
 
-                                    <button type="button" class="btn_2" data-bs-dismiss="modal"
-                                        [routerLink]="['/prenotazioni']">Chiudi</button>
+                                    <!-- <button type="button" class="btn_2" data-bs-dismiss="modal" [routerLink]="['/prenotazioni']">Chiudi</button> -->
+                                    <button type="button" class="btn_2" [routerLink]="['/prenotazioni']">Chiudi</button>
                                 </div>
+                                <div class="col-3"></div>
                             </div>
                         </div>
                     </div>

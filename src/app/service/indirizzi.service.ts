@@ -1,17 +1,17 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment.development';
-import { Indirizzo } from '../models/fattura.interface';
+// import { HttpClient } from '@angular/common/http';
+// import { Injectable } from '@angular/core';
+// import { environment } from 'src/environments/environment.development';
+// import { Indirizzo } from '../models/fattura.interface';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class IndirizziService {
+// @Injectable({
+//   providedIn: 'root'
+// })
+// export class IndirizziService {
 
-  apiUrL = environment.apiURL;
-  constructor(private http:HttpClient) {   }
+//   apiUrL = environment.apiURL;
+//   constructor(private http:HttpClient) {   }
 
-  postIndirizzo(indirizzo:Indirizzo){
-    return this.http.post(`${this.apiUrL}indirizzi`,indirizzo,{ responseType: 'text' });
-  }
-}
+//   postIndirizzo(indirizzo:Indirizzo){
+//     return this.http.post(`${this.apiUrL}indirizzi`,indirizzo,{ responseType: 'text' });
+//   }
+// }

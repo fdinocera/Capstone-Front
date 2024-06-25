@@ -1,0 +1,132 @@
+<!-- 
+ ***********************************************************************************
+
+    MODIFICA PRENOTAZIONE
+
+************************************************************************************
+ -->
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="btn-open">
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <h5 class="text-center mt-3" id="staticBackdropLabel">Modifica prenotazione</h5>
+
+            <div class="modal-body">
+
+
+                <div *ngIf="prenotazione">
+                    <form #newClienteForm="ngForm">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="row my-3 border-bottom p-3 align-items-center">
+                                    <div class="col-4">
+                                        <label for="nomeCliente" class="form-label fw-bold">Nome ospite</label>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" [(ngModel)]="prenotazione.nomeCliente" class="form-control"
+                                            id="nomeCliente" name="nomeCliente" ngModel required>
+                                    </div>
+                                </div>
+
+                                <div class="row my-3 border-bottom p-3 align-items-center">
+                                    <div class="col-4">
+                                        <label for="adulti" class="form-label fw-bold">Adulti</label>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="number" [(ngModel)]="prenotazione.adulti" class="form-control"
+                                            id="adulti" name="adulti" ngModel required>
+                                    </div>
+                                </div>
+
+                                <div class="row my-3 border-bottom p-3 align-items-center">
+                                    <div class="col-4">
+                                        <label for="bambini" class="form-label fw-bold">Bambini</label>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="number" [(ngModel)]="prenotazione.bambini" class="form-control"
+                                            id="bambini" name="bambini" ngModel required>
+                                    </div>
+                                </div>
+
+                                <div class="row my-3 border-bottom p-3 align-items-center">
+                                    <div class="col-3">
+                                        <label for="checkIn" class="form-label fw-bold">Check-in</label>
+                                    </div>
+                                    <div class="col-9">
+                                        <input type="date" [(ngModel)]="prenotazione.checkIn" class="form-control"
+                                            id="checkIn" name="checkIn" ngModel required>
+                                    </div>
+                                </div>
+
+                                <div class="row my-3 border-bottom p-3 align-items-center">
+                                    <div class="col-3">
+                                        <label for="checkOut" class="form-label fw-bold">Check-out</label>
+                                    </div>
+                                    <div class="col-9">
+                                        <input type="date" [(ngModel)]="prenotazione.checkOut" class="form-control"
+                                            id="checkOut" name="checkOut" ngModel required>
+                                    </div>
+                                </div>
+
+                                <div class="row my-3 border-bottom p-3 align-items-center">
+                                    <div class="col-5">
+                                        <label for="costoSoggiorno" class="form-label fw-bold">Costo soggiorno</label>
+                                    </div>
+                                    <div class="col-7">
+                                        <input type="number" [(ngModel)]="prenotazione.costoSoggiorno"
+                                            class="form-control" id="costoSoggiorno" name="costoSoggiorno" ngModel
+                                            required>
+                                    </div>
+                                </div>
+
+                                <div class="row my-3 border-bottom p-3 align-items-center">
+                                    <div class="col-5">
+                                        <label for="piattaforma" class="form-label fw-bold">Piattaforma</label>
+                                    </div>
+                                    <div class="col-7">
+                                        <input type="text" [(ngModel)]="prenotazione.piattaforma" class="form-control"
+                                            id="piattaforma" name="piattaforma" ngModel required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-4"></div>
+                                    <div class="col-4">
+                                        <button type="button" class="btn_3 mb-3" data-bs-dismiss="modal"
+                                            (click)="eliminaPrenotazione(prenotazione.id)"
+                                            [routerLink]="['/prenotazioni']">Elimina</button>
+
+
+                                        <button type="submit" class="btn_2 mb-3" data-bs-dismiss="modal"
+                                            data-bs-toggle="modal"
+                                            (click)="modificaPrenotazione(newClienteForm, prenotazione.id)"
+                                            [routerLink]="['/prenotazioni']">Modifica</button>
+
+                                        <button type="button" class="btn_2" data-bs-dismiss="modal"
+                                            [routerLink]="['/prenotazioni']">Chiudi</button>
+                                    </div>
+
+                                </div>
+                                <!-- <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Understood</button>
+                            </div> -->
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

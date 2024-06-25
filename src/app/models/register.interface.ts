@@ -4,6 +4,5 @@ export interface Register {
     email: string;
     password: string;
     nome: string;
-    cognome: string;
-    // avatar?: string;
+    cognome: string;    
 }

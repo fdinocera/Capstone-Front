@@ -13,13 +13,10 @@ import { Prenotazione } from 'src/app/models/prenotazione.interface';
 export class PrenotazioniComponent implements OnInit {
 
 	user!: AuthData;
-
-	prenotazioni: Prenotazione[] = [];
+	prenotazioni: Prenotazione[] = [];	
 
 	constructor(private prenotazioneSrv: PrenotazioneService) { }
-
 	mobile = false;
-
 
 
 	ngOnInit(): void {
@@ -39,7 +36,7 @@ export class PrenotazioniComponent implements OnInit {
 
 		//leggi record PRENOTAZIONI		
 		this.prenotazioneSrv.getPrenotazioniFromCurrent().subscribe(data => {
-			this.prenotazioni = data;
+			this.prenotazioni = data;		
 
 			//ordina per data checkin discendente
 			this.prenotazioni.sort(function (a, b) { return Date.parse(a.checkIn) - Date.parse(b.checkIn) })

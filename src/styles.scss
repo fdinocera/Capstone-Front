@@ -1,13 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
-body{
-    font-family: "Glory";    
-    background-color: #628b8e;
-    
-    margin: 0;
-    padding: 0;
+body {
+  font-family: "Glory";
+  background-color: #628b8e;
+
+  margin: 0;
+  padding: 0;
 }
 
+/* styles.css */
+.dark-background {
+  background-color: rgba(0, 0, 0, 0.5); /* Colore scuro con trasparenza */
+}
 
+//   background-color: #314547
 
 // Variabili di colore personalizzate
 // $text: #A7D4AD;
@@ -16,154 +21,165 @@ body{
 // $secondary: #628b8e;
 // $accent: #ffd470;
 
-.text-color{color: #A7D4AD;}
-.primary-color{color:#145459;}
-.secondary-color{color:#628b8e;}
-.accent-color{color:#ffd470;}
+.text-color {
+  color: #a7d4ad;
+}
+.primary-color {
+  color: #145459;
+}
+.secondary-color {
+  color: #628b8e;
+}
+.accent-color {
+  color: #ffd470;
+}
 
 //.bg-color{background-color: #397E79}
-.bg-primary-color{background-color: #145459;}
+.bg-primary-color {
+  background-color: #145459;
+}
 
-.bg-primary-color2{background-color: #228c94;}
-.bg-primary-color3{background-color: #2cb3bd;}
+.bg-primary-color2 {
+  background-color: #228c94;
+}
+.bg-primary-color3 {
+  background-color: #2cb3bd;
+}
 
-.bg-secondary-color{background-color:#628b8e;}
-.bg-accent-color{background-color:#ffd470;}
-
+.bg-secondary-color {
+  background-color: #628b8e;
+}
+.bg-accent-color {
+  background-color: #ffd470;
+}
 
 // .sfondo-tabella{
 //     color:#e6e8b2
 // }
 
-.arrow{
-    color:#A7D4AD;
+.arrow {
+  color: #a7d4ad;
 }
-.arrow:hover{
-    color:#caecce;
-}
-
-
-.btn_2{
-    background-color:#145459;
-    color: #A7D4AD;
-    border-radius: 9px;
-    border: 0;
-    width: 9rem;
-    height: 4rem;
+.arrow:hover {
+  color: #caecce;
 }
 
-.btn_2:hover{
-    background-color:#1e7980;
-    color: #A7D4AD;
-    border-radius: 9px;
-    border: 0;
-    width: 9rem;
-    height: 4rem;
+.btn_2 {
+  background-color: #145459;
+  color: #a7d4ad;
+  border-radius: 9px;
+  border: 0;
+  width: 9rem;
+  height: 4rem;
 }
 
-.btn_3{
-    background-color:#ffd470;
-    color: #145459;
-    border-radius: 9px;
-    border: 0;
-    width: 9rem;
-    height: 4rem;
+.btn_2:hover {
+  background-color: #1e7980;
+  color: #a7d4ad;
+  border-radius: 9px;
+  border: 0;
+  width: 9rem;
+  height: 4rem;
 }
 
-.btn_3:hover{
-    background-color:#ffde92;
-    color: #145459;
-    border-radius: 9px;
-    border: 0;
-    width: 9rem;
-    height: 4rem;
+.btn_3 {
+  background-color: #ffd470;
+  color: #145459;
+  border-radius: 9px;
+  border: 0;
+  width: 9rem;
+  height: 4rem;
 }
 
-.btn_4{
-    background-color:#145459;
-    color: #A7D4AD;
-    border-radius: 9px;
-    border: 0;
-    width: 5rem;
-    height: 3rem;
+.btn_3:hover {
+  background-color: #ffde92;
+  color: #145459;
+  border-radius: 9px;
+  border: 0;
+  width: 9rem;
+  height: 4rem;
 }
 
-.btn_4:hover{
-    background-color:#1e7980;
-    color: #A7D4AD;
-    border-radius: 9px;
-    border: 0;
-    width: 5rem;
-    height: 3rem;
+.btn_4 {
+  background-color: #145459;
+  color: #a7d4ad;
+  border-radius: 9px;
+  border: 0;
+  width: 5rem;
+  height: 3rem;
 }
 
-.btn_transparent{
-    background-color: transparent;
-    color: transparent;
-    border-color: transparent;
+.btn_4:hover {
+  background-color: #1e7980;
+  color: #a7d4ad;
+  border-radius: 9px;
+  border: 0;
+  width: 5rem;
+  height: 3rem;
 }
 
-input[type=checkbox] {
-    position: relative;
-      cursor: pointer;
-}
-input[type=checkbox]:before {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    top: 0;
-    left: 0;
-    background-color:#e9e9e9;
-    border-radius: 20%;
-}
-input[type=checkbox]:checked:before {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    top: 0;
-    left: 0;
-    background-color:#0c3538;
-    border-radius: 20%;
+.btn_transparent {
+  background-color: transparent;
+  color: transparent;
+  border-color: transparent;
 }
 
-
-input[type=checkbox]:checked:after {
-    content: "";
-    display: block;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 2px 2px 0;    
-    transform: rotate(45deg);
-    position: absolute;
-    top: 2px;
-    left: 6px;
-    border-radius: 20%;
+input[type="checkbox"] {
+  position: relative;
+  cursor: pointer;
+}
+input[type="checkbox"]:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 0;
+  left: 0;
+  background-color: #e9e9e9;
+  border-radius: 20%;
+}
+input[type="checkbox"]:checked:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 0;
+  left: 0;
+  background-color: #0c3538;
+  border-radius: 20%;
 }
 
-.bg-tabella-pari{
-    background-color: #a3c6f3;
+input[type="checkbox"]:checked:after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  border-radius: 20%;
 }
 
-.bg-tabella-dispari{
-    background-color: #8cb8f1;
+.bg-tabella-pari {
+  background-color: #a3c6f3;
 }
 
-.rounded-corner-bottom-left{
-    border-bottom-left-radius: 5px;
+.bg-tabella-dispari {
+  background-color: #8cb8f1;
 }
 
-.rounded-corner-bottom-right{
-    border-bottom-right-radius: 5px;
+.rounded-corner-bottom-left {
+  border-bottom-left-radius: 5px;
 }
 
-
-
-
+.rounded-corner-bottom-right {
+  border-bottom-right-radius: 5px;
+}
 
 // .bg-color-light_blue{
 //     background-color:#92b9bd;
@@ -175,7 +191,6 @@ input[type=checkbox]:checked:after {
 //     background-color:#f2f79e;
 // }
 
-
 // .sfondo-evidenziato{
 //     color: red;
 //     background-color: #f2f79e;
@@ -186,23 +201,9 @@ input[type=checkbox]:checked:after {
 //     background-color: #92b9bd;
 // }
 
-
-
-
-
-
-
-
-
-
-
 //@import "/node_modules/bootstrap/scss/bootstrap.scss"
 
-
-
-
 // @import "/node_modules/";
-
 
 // $primary:       $pink-600;
 // $secondary:     $yellow-300;
@@ -226,7 +227,6 @@ input[type=checkbox]:checked:after {
 //   "dark":       $dark
 // );
 
-
 // $custom-colors:(
 //     "primary": #145459,
 //     "secondary":#628b8e
@@ -234,4 +234,3 @@ input[type=checkbox]:checked:after {
 
 // @import "/node_modules/bootstrap/scss/variables";
 // $theme-colors: map-merge($theme-colors , $custom-colors )
-

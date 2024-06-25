@@ -20,24 +20,27 @@ export class HomeComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
 
         this.prenotazioniService.getPrenotazioneCurrent().subscribe(data => {
-            this.prenotazione = data;
-            this.soggiornoCorrenteService.getSoggiornoCorrente().subscribe(data => {
-                this.soggiornoCorrente = data;
+            
+            this.soggiornoCorrenteService.getSoggiornoCorrente().subscribe(data2 => {
 
+                this.prenotazione = data;
+                
+                this.soggiornoCorrente = data2;
+                
                 //azzera dati per nuovo soggiorno
-                if (this.soggiornoCorrente[0].dataInizio !== this.prenotazione.checkIn) {
-                    this.soggiornoCorrente[0].dataInizio = this.prenotazione.checkIn
-                    this.soggiornoCorrente[0].comunicazioneDatiPS = false;
-                    this.soggiornoCorrente[0].riversamentoSomme = false;
-                    this.soggiornoCorrente[0].problemaOspite = "";
-                    this.soggiornoCorrente[0].soluzioneOspite = "";
-                    this.soggiornoCorrenteService.putSoggiornoCorrente(this.soggiornoCorrente[0].id, this.soggiornoCorrente[0]).subscribe();
+                if (this.soggiornoCorrente.length > 0) {
+                    if (this.soggiornoCorrente[0].dataInizio !== this.prenotazione.checkIn) {
+                        this.soggiornoCorrente[0].dataInizio = this.prenotazione.checkIn
+                        this.soggiornoCorrente[0].comunicazioneDatiPS = false;
+                        this.soggiornoCorrente[0].riversamentoSomme = false;
+                        this.soggiornoCorrente[0].problemaOspite = "";
+                        this.soggiornoCorrente[0].soluzioneOspite = "";
+                        this.soggiornoCorrenteService.putSoggiornoCorrente(this.soggiornoCorrente[0].id, this.soggiornoCorrente[0]).subscribe();
+                    }
                 }
-            })
-        })
-
-
-    }
+            })   
+        }
+    )}
 
     formatData(data: string) {
         //formattazione data
@@ -46,16 +49,18 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     ngOnDestroy(): void {
         //salva dati soggiorno
-        this.soggiornoCorrenteService.putSoggiornoCorrente(this.soggiornoCorrente[0].id, this.soggiornoCorrente[0]).subscribe();
+        if (this.soggiornoCorrente && this.soggiornoCorrente[0].id === 1) {
+            this.soggiornoCorrenteService.putSoggiornoCorrente(this.soggiornoCorrente[0].id, this.soggiornoCorrente[0]).subscribe();
+        }
     }
 
     scadenzaComunicazioneDatiPS() {
         let data = new Date(this.prenotazione.checkIn);
         data.setDate(data.getDate() + 1);
-        
-        const giorni = ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab']		
-		const dd = String(data.getDate()).padStart(2, '0');
-		const mm = String(data.getMonth() + 1).padStart(2, '0');
-		return `${giorni[data.getDay()]} ${dd}/${mm} 23:59`;        
+
+        const giorni = ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab']
+        const dd = String(data.getDate()).padStart(2, '0');
+        const mm = String(data.getMonth() + 1).padStart(2, '0');
+        return `${giorni[data.getDay()]} ${dd}/${mm} 23:59`;
     }
 }

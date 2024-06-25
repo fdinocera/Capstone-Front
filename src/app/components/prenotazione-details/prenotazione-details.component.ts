@@ -16,7 +16,7 @@ import { HttpClient } from '@angular/common/http';
 export class PrenotazioneDetailsComponent implements OnInit {
 
     prenotazione!: Prenotazione;
-
+    formVisible: boolean = false;
 
     constructor(
         private router: ActivatedRoute,
@@ -25,17 +25,24 @@ export class PrenotazioneDetailsComponent implements OnInit {
 
     ngOnInit(): void {
 
-        let button = document.getElementById('openModalButton');
-        if (button) {
-            button.click();
-        }
+        //set backgroun body
+        document.body.classList.add('dark-background');
+        
+
 
         this.router.params.subscribe((params) => {
             const id = +params['id'];
             this.prenotazioniServ.getPrenotazione(id).subscribe((data) => {
                 this.prenotazione = data;
+
+
+                // let button = document.getElementById('openModalButton');
+                // if (button) {
+                //     button.click();
+                // }
             });
         });
+        this.formVisible = true
     }
 
     modificaPrenotazione(form: NgForm, id: number) {
@@ -46,59 +53,16 @@ export class PrenotazioneDetailsComponent implements OnInit {
         })
     }
 
-    // modificaPrenotazione(form: NgForm, id: number) {
-    //     this.prenotazioniServ.putPrenotazione(form.value, id).subscribe(() => {
-    //         this.prenotazioniServ.getPrenotazioniFromCurrent().subscribe(data =>{
-    //             this.prenotazioniServ.setNuovePrenotazioni(data);
-    //         })
-    //     });        
-    // }
-
-
-    eliminaPrenotazione(id:number){
+    eliminaPrenotazione(id: number) {
         this.prenotazioniServ.deletePrenotazione(id).subscribe();
     }
 
-
-
-    //user!: AuthData;
-    //prenotazioni: Prenotazione[] = [];
-
-    //constructor(private prenotazioneSrv: PrenotazioneService) {}	
-
-
-    // ngOnInit(): void {
-    // 	//sottoscrive notifica variazioni delle prenotazioni
-    // 	this.prenotazioneSrv.nuovePrenotazioni$.subscribe(data => {
-    // 		this.prenotazioni = data;
-
-    // 		//ordina per data checkin discendente
-    // 		this.prenotazioni.sort(function (a, b) { return Date.parse(a.checkIn) - Date.parse(b.checkIn) })
-    // 	});
-
-
-    // 	//leggi record PRENOTAZIONI		
-    // 	this.prenotazioneSrv.getPrenotazioniFromCurrent().subscribe(data => {
-    // 		this.prenotazioni = data;
-
-    // 		//ordina per data checkin discendente
-    // 		this.prenotazioni.sort(function (a, b) { return Date.parse(a.checkIn) - Date.parse(b.checkIn) })
-    // 	})
-    // }
-
-    // addCliente(form: NgForm) {
-
-    //     this.prenotazioniServ.postPrenotazione(form.value).subscribe(() =>
-    //         this.prenotazioniServ.getPrenotazioniFromCurrent().subscribe(data => {
-    //             this.prenotazioni = data;
-
-    //             //ordina per data checkin discendente
-    //             this.prenotazioni.sort(function (a, b) { return Date.parse(a.checkIn) - Date.parse(b.checkIn) })
-    //         })
-    //     );
-    // }
-
     formatData(data: string) {
         return this.prenotazioniServ.formatData(data);
-    }   
+    }
+
+    chiudi() {
+        alert("chiudi")
+    }
+
 }
