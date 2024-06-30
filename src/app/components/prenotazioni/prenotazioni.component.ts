@@ -16,14 +16,14 @@ export class PrenotazioniComponent implements OnInit {
 	prenotazioni: Prenotazione[] = [];	
 
 	constructor(private prenotazioneSrv: PrenotazioneService) { }
-	mobile = false;
+	//mobile = false;
 
 
 	ngOnInit(): void {
 
-		if (window.screen.width < 993) { // 768px portrait
-			this.mobile = true;
-		}
+		// if (window.screen.width < 993) { // 768px portrait
+		// 	this.mobile = true;
+		// }
 
 		//sottoscrive notifica variazioni delle prenotazioni
 		this.prenotazioneSrv.nuovePrenotazioni$.subscribe(data => {
