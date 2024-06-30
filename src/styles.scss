@@ -8,18 +8,10 @@ body {
 }
 
 /* styles.css */
-.dark-background {
-  background-color: rgba(0, 0, 0, 0.5); /* Colore scuro con trasparenza */
-}
+// .dark-background {
+//   background-color: rgba(0, 0, 0, 0.5); /* Colore scuro con trasparenza */
+// }
 
-//   background-color: #314547
-
-// Variabili di colore personalizzate
-// $text: #A7D4AD;
-// $background:#397e79;
-// $primary: #145459;
-// $secondary: #628b8e;
-// $accent: #ffd470;
 
 .text-color {
   color: #a7d4ad;
@@ -34,7 +26,6 @@ body {
   color: #ffd470;
 }
 
-//.bg-color{background-color: #397E79}
 .bg-primary-color {
   background-color: #145459;
 }
@@ -52,10 +43,6 @@ body {
 .bg-accent-color {
   background-color: #ffd470;
 }
-
-// .sfondo-tabella{
-//     color:#e6e8b2
-// }
 
 .arrow {
   color: #a7d4ad;
@@ -165,12 +152,14 @@ input[type="checkbox"]:checked:after {
   border-radius: 20%;
 }
 
+
+//tabelle -------------------------------
 .bg-tabella-pari {
-  background-color: #a3c6f3;
+  background-color: #77dbdf;
 }
 
 .bg-tabella-dispari {
-  background-color: #8cb8f1;
+  background-color: #2bacb0;
 }
 
 .rounded-corner-bottom-left {
@@ -180,57 +169,3 @@ input[type="checkbox"]:checked:after {
 .rounded-corner-bottom-right {
   border-bottom-right-radius: 5px;
 }
-
-// .bg-color-light_blue{
-//     background-color:#92b9bd;
-// }
-// .bg-color-verde_scuro{
-//     background-color: #2E6662;
-// }
-// .bg-color-accent{
-//     background-color:#f2f79e;
-// }
-
-// .sfondo-evidenziato{
-//     color: red;
-//     background-color: #f2f79e;
-// }
-
-// .sfondo-normale{
-//     color: #A7D4AD;
-//     background-color: #92b9bd;
-// }
-
-//@import "/node_modules/bootstrap/scss/bootstrap.scss"
-
-// @import "/node_modules/";
-
-// $primary:       $pink-600;
-// $secondary:     $yellow-300;
-// $success:       $green;
-// $info:          $cyan;
-// $warning:       $yellow;
-// $danger:        $red;
-// $light:         $gray-100;
-// $dark:          $gray-900;
-
-// //futhermore it's necesary override the $theme-colors
-
-// $theme-colors: (
-//   "primary":    $primary,
-//   "secondary":  $secondary,
-//   "success":    $success,
-//   "info":       $info,
-//   "warning":    $warning,
-//   "danger":     $danger,
-//   "light":      $light,
-//   "dark":       $dark
-// );
-
-// $custom-colors:(
-//     "primary": #145459,
-//     "secondary":#628b8e
-//     )!default;
-
-// @import "/node_modules/bootstrap/scss/variables";
-// $theme-colors: map-merge($theme-colors , $custom-colors )

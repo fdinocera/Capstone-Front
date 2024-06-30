@@ -74,7 +74,7 @@ const routes: Route[] = [
             provide: HTTP_INTERCEPTORS,
             useClass: TokenInterceptor,
             multi: true,
-        },
+        },        
     ],
     bootstrap: [AppComponent],
 })

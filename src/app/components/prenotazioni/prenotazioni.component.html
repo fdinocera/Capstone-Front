@@ -22,9 +22,7 @@
             <div class="row d-flex border-bottom p-3 align-content-center align-items-center"
                 *ngFor="let prenotazione of prenotazioni">
 
-                <div class="col-4">
-                    <button [routerLink]="['/prenotazioni', prenotazione.id]" class="btn_2">Modifica</button>
-                </div>
+                <div class="col-2"></div>
                 <div class="col-8">
                     <div class="row">
                         <div class="col-4 fw-bold">Nome ospite:</div>
@@ -53,12 +51,17 @@
 
                     <div class="row">
                         <div class="col-4 fw-bold">Costo:</div>
-                        <div class="col-8 ">€ {{ prenotazione.costoSoggiorno }}</div>
+                        <div class="col-8 ">€ {{ prenotazione.costoSoggiorno| number:'1.2-2' }}</div>                                            
                     </div>
 
                     <div class="row">
                         <div class="col-4 fw-bold">Piattaforma:</div>
                         <div class="col-8 ">{{ prenotazione.piattaforma }}</div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-4">
+                            <button [routerLink]="['/prenotazioni', prenotazione.id]" class="btn_2">Modifica</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -105,9 +108,9 @@
 
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            
+
             <h5 class="text-center mt-3" id="">Aggiungi Prenotazione</h5>
-            
+
             <div class="modal-body">
                 <form #newClienteForm="ngForm" (ngSubmit)="addCliente(newClienteForm)">
 
