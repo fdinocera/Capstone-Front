@@ -13,4 +13,9 @@ export interface Prenotazione {
     checkOut: string;
     piattaforma: string;
     costoSoggiorno: number;
+
+    problemaOspite: string;
+    soluzioneOspite:  boolean;
+    comunicazioneDatiPs: boolean;
+    riversamentoSomme: string;
 }

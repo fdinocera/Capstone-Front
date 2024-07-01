@@ -12,7 +12,8 @@ import { SoggiornoCorrenteService } from 'src/app/service/soggiorno-corrente.ser
 export class HomeComponent implements OnInit, OnDestroy {
 
     prenotazione!: Prenotazione;
-    soggiornoCorrente: SoggiornoCorrente[] = [];
+    // soggiornoCorrente: SoggiornoCorrente[] = [];
+    //soggiornoCorrente!: SoggiornoCorrente;
     isChecked = false;
 
     constructor(private prenotazioniService: PrenotazioneService, private soggiornoCorrenteService: SoggiornoCorrenteService) { }
@@ -20,27 +21,49 @@ export class HomeComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
 
         this.prenotazioniService.getPrenotazioneCurrent().subscribe(data => {
-            
-            this.soggiornoCorrenteService.getSoggiornoCorrente().subscribe(data2 => {
+            this.prenotazione = data;
+        });
 
-                this.prenotazione = data;
-                
-                this.soggiornoCorrente = data2;
-                
-                //azzera dati per nuovo soggiorno
-                if (this.soggiornoCorrente.length > 0) {
-                    if (this.soggiornoCorrente[0].dataInizio !== this.prenotazione.checkIn) {
-                        this.soggiornoCorrente[0].dataInizio = this.prenotazione.checkIn
-                        this.soggiornoCorrente[0].comunicazioneDatiPS = false;
-                        this.soggiornoCorrente[0].riversamentoSomme = false;
-                        this.soggiornoCorrente[0].problemaOspite = "";
-                        this.soggiornoCorrente[0].soluzioneOspite = "";
-                        this.soggiornoCorrenteService.putSoggiornoCorrente(this.soggiornoCorrente[0].id, this.soggiornoCorrente[0]).subscribe();
-                    }
-                }
-            })   
-        }
-    )}
+        // this.soggiornoCorrenteService.getSoggiornoCorrente(2).subscribe(data2 => {
+        //     this.soggiornoCorrente = data2;
+        //     this.soggiornoCorrente.comunicazioneDatiPS = data2.comunicazioneDatiPS;
+        //     this.soggiornoCorrente.dataInizio = data2.dataInizio;
+        //     this.soggiornoCorrente.problemaOspite = data2.problemaOspite;
+        //     this.soggiornoCorrente.soluzioneOspite = data2.soluzioneOspite;
+        // });
+
+        //this.soggiornoCorrenteService.deleteSoggiornoCorrente(2);
+
+
+        // if (!this.soggiornoCorrente.id) {
+        //     let sogg: SoggiornoCorrente = {
+        //         id: 0,
+        //         dataInizio: this.prenotazione.checkIn,
+        //         comunicazioneDatiPS: false,
+        //         riversamentoSomme: false,
+        //         problemaOspite: "",
+        //         soluzioneOspite: ""
+        //     };
+
+        //     this.soggiornoCorrente = sogg;
+        //     this.soggiornoCorrenteService.postSoggiornoCorrente(sogg);
+        // }
+
+        //this.soggiornoCorrenteService.putSoggiornoCorrente(this.soggiornoCorrente[0].id, this.soggiornoCorrente[0]).subscribe();
+
+        //azzera dati per nuovo soggiorno
+        // if (this.soggiornoCorrente.length > 0) {
+        //     if (this.soggiornoCorrente[0].dataInizio !== this.prenotazione.checkIn) {
+        //         this.soggiornoCorrente[0].dataInizio = this.prenotazione.checkIn
+        //         this.soggiornoCorrente[0].comunicazioneDatiPS = false;
+        //         this.soggiornoCorrente[0].riversamentoSomme = false;
+        //         this.soggiornoCorrente[0].problemaOspite = "";
+        //         this.soggiornoCorrente[0].soluzioneOspite = "";
+        //         this.soggiornoCorrenteService.putSoggiornoCorrente(this.soggiornoCorrente[0].id, this.soggiornoCorrente[0]).subscribe();
+        //     }
+        // }
+
+    }
 
     formatData(data: string) {
         //formattazione data
@@ -48,11 +71,15 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
+
+        console.log(this.prenotazione)
+
         //salva dati soggiorno
-        if (this.soggiornoCorrente && this.soggiornoCorrente[0].id === 1) {
-            this.soggiornoCorrenteService.putSoggiornoCorrente(this.soggiornoCorrente[0].id, this.soggiornoCorrente[0]).subscribe();
-        }
+        //this.soggiornoCorrenteService.postSoggiornoCorrente(this.soggiornoCorrente).subscribe();
+        this.prenotazioniService.putPrenotazione(this.prenotazione, this.prenotazione.id).subscribe();
     }
+
+    
 
     scadenzaComunicazioneDatiPS() {
         let data = new Date(this.prenotazione.checkIn);
