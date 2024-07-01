@@ -1,3 +1,8 @@
+
+
+
+
+
 <nav class="navbar navbar-expand-lg position-sticky top-0 border-bottom bg-body">
 	<div class="container-fluid">
 		<a class="navbar-brand" href="#">
@@ -12,20 +17,20 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li *ngIf="user" class="nav-item fs-6">
-					<a class="nav-link active" aria-current="page" [routerLink]="['/']" routerLinkActive="active"
+					<a class="nav-link active" aria-current="page" [routerLink]="['/']" routerLinkActive="active" (click)="chiudiMenu()"
 						[routerLinkActiveOptions]="{ exact: true }">Home</a>
+				</li>								
+				<li *ngIf="!user" class="nav-item fs-6">
+					<a class="nav-link" [routerLink]="['/register']" routerLinkActive="active" (click)="chiudiMenu()">Registrati</a>
 				</li>
 				<li *ngIf="!user" class="nav-item fs-6">
-					<a class="nav-link" [routerLink]="['/register']" routerLinkActive="active">Registrati</a>
-				</li>
-				<li *ngIf="!user" class="nav-item fs-6">
-					<a class="nav-link" [routerLink]="['/login']" routerLinkActive="active">Login</a>
+					<a class="nav-link" [routerLink]="['/login']" routerLinkActive="active" (click)="chiudiMenu()">Login</a>
 				</li>
 				<li *ngIf="user" class="nav-item fs-6">
-					<a class="nav-link" [routerLink]="['/prenotazioni']" routerLinkActive="active">Prenotazioni</a>
+					<a class="nav-link" [routerLink]="['/prenotazioni']" routerLinkActive="active" (click)="chiudiMenu()">Prenotazioni</a>					
 				</li>
 				<li *ngIf="user" class="nav-item fs-6">
-					<a class="nav-link" [routerLink]="['/statistiche']" routerLinkActive="active">Statistiche</a>
+					<a class="nav-link" [routerLink]="['/statistiche']" routerLinkActive="active" (click)="chiudiMenu()" >Statistiche</a>
 				</li>
 				
 				<div class="row ">

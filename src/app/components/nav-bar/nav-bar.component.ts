@@ -9,11 +9,20 @@ import { AuthData } from 'src/app/models/auth-data.interface';
 })
 export class NavBarComponent implements OnInit {
     user!: AuthData | null
+
     constructor(private authSrv: AuthService) { }
+
     ngOnInit(): void {
         this.authSrv.user$.subscribe((user) => {
             this.user = user;
-        });
+        });        
+    }
+
+    chiudiMenu() {
+        let btn = document.querySelector('.navbar-toggler') as HTMLElement;        
+        if (window.getComputedStyle(btn).display !== 'none') {
+            btn.click()
+        }
     }
 
     logout() {
