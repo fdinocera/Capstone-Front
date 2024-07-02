@@ -34,7 +34,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
         //this.soggiornoCorrenteService.deleteSoggiornoCorrente(2);
 
-
         // if (!this.soggiornoCorrente.id) {
         //     let sogg: SoggiornoCorrente = {
         //         id: 0,
@@ -62,7 +61,6 @@ export class HomeComponent implements OnInit, OnDestroy {
         //         this.soggiornoCorrenteService.putSoggiornoCorrente(this.soggiornoCorrente[0].id, this.soggiornoCorrente[0]).subscribe();
         //     }
         // }
-
     }
 
     formatData(data: string) {
