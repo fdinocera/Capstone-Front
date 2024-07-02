@@ -75,9 +75,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         //salva dati soggiorno
         //this.soggiornoCorrenteService.postSoggiornoCorrente(this.soggiornoCorrente).subscribe();
         this.prenotazioniService.putPrenotazione(this.prenotazione, this.prenotazione.id).subscribe();
-    }
-
-    
+    }    
 
     scadenzaComunicazioneDatiPS() {
         let data = new Date(this.prenotazione.checkIn);
