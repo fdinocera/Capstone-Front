@@ -14,7 +14,6 @@ import { PrenotazioniComponent } from './components/prenotazioni/prenotazioni.co
 import { StatisticheComponent } from './components/statistiche/statistiche.component';
 import { AuthGuard } from './auth/auth.guard';
 import { PrenotazioneDetailsComponent } from './components/prenotazione-details/prenotazione-details.component';
-import { AggiungiPrenotazioneComponent } from './components/aggiungi-prenotazione/aggiungi-prenotazione.component';
 import { ModificaPrenotazioneComponent } from './modifica-prenotazione/modifica-prenotazione.component';
 
 
@@ -63,7 +62,6 @@ const routes: Route[] = [
         PrenotazioniComponent,
         StatisticheComponent,
         PrenotazioneDetailsComponent,
-        AggiungiPrenotazioneComponent,
         ModificaPrenotazioneComponent,
         ],
 

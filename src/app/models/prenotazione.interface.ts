@@ -1,9 +1,3 @@
-
-export interface PrenotazioneResponse {
-    content: Prenotazione[];
-}
-
-
 export interface Prenotazione {
     id: number;
     nomeCliente: string;

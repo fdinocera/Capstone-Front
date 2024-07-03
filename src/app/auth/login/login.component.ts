@@ -12,19 +12,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-
-
     constructor(private authSrv: AuthService, private router: Router) { }
-
-    // login(form:NgForm){
-    //   try {
-    //     this.authSrv.login(form.value).subscribe();
-    //     this.router.navigate(['/'])
-    //   } catch (error) {
-    //     console.error(error)
-    //     return
-    //   }
-    // }
+   
 
     login(form: NgForm) {
         this.authSrv.login(form.value).subscribe(

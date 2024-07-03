@@ -1,35 +1,10 @@
-<!-------------------------------------------------------
-
-    DETTAGLI PRENOTAZIONE
-
---------------------------------------------------------->
-
-
-<!-- Modale per modifica PRENOTAZIONE -->
-
-<!-- <button id="openModalButton" type="button" class="btn_transparent" data-bs-toggle="modal"
-    data-bs-target="#exampleModal">Modifica</button> -->
-
-
-
-
 
 <div *ngIf="prenotazione">
-    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-        data-bs-backdrop="static" data-bs-keyboard="false"> -->
-    <!-- <div class="bg-body-secondary"> -->
 
-
-
-    <!-- <div class="container "  [ngClass]="{'dark-background': formVisible}" style="max-width:800px"> -->
+    
     <div class="container dark-background" style="max-width:800px">
 
         <div class="bg-white rounded-2 ms-5 me-5">
-
-
-            <!-- ultima modifica -->
-            <!-- <div class="modal-dialog modal-lg"> -->
-
 
             <h5 class="display-6 text-center mt-5">Modifica Prenotazione</h5>
 
@@ -38,7 +13,7 @@
                 <form #newClienteForm="ngForm">
                     <div class="row">
                         <div class="col-6">
-                            <!-- <div class="row my-3 border-bottom p-3"> -->
+                            
                             <div class="row my-3 p-3">
                                 <div class="col-4">
                                     <label for="nomeCliente" class="form-label fw-bold">Nome ospite</label>
@@ -123,8 +98,7 @@
                                         data-bs-toggle="modal"
                                         (click)="modificaPrenotazione(newClienteForm, prenotazione.id)"
                                         [routerLink]="['/prenotazioni']">Modifica</button>
-
-                                    <!-- <button type="button" class="btn_2" data-bs-dismiss="modal" [routerLink]="['/prenotazioni']">Chiudi</button> -->
+                                    
                                     <button type="button" class="btn_2" [routerLink]="['/prenotazioni']">Chiudi</button>
                                 </div>
                                 <div class="col-3"></div>

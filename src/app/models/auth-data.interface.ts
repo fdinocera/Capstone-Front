@@ -6,6 +6,6 @@ export interface AuthData {
     nome: string;
     cognome: string;
     avatar: string;
-    ruolo: string; // Assumendo che Ruolo sia un tipo o un'interfaccia definita altrove nel tuo codice
+    ruolo: string; 
   } 
 

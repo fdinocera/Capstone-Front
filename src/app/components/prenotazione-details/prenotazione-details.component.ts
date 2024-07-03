@@ -3,10 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { PrenotazioneService } from 'src/app/service/prenotazione.service';
 import { Prenotazione } from 'src/app/models/prenotazione.interface';
-import { AuthData } from 'src/app/models/auth-data.interface';
-import { HttpClient } from '@angular/common/http';
-
-
 
 @Component({
     selector: 'prenotazione-details',
@@ -15,8 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PrenotazioneDetailsComponent implements OnInit {
 
-    prenotazione!: Prenotazione;
-    formVisible: boolean = false;
+    prenotazione!: Prenotazione;    
 
     constructor(
         private router: ActivatedRoute,
@@ -27,22 +22,13 @@ export class PrenotazioneDetailsComponent implements OnInit {
 
         //set backgroun body
         document.body.classList.add('dark-background');
-        
-
 
         this.router.params.subscribe((params) => {
             const id = +params['id'];
             this.prenotazioniServ.getPrenotazione(id).subscribe((data) => {
-                this.prenotazione = data;
-
-
-                // let button = document.getElementById('openModalButton');
-                // if (button) {
-                //     button.click();
-                // }
+                this.prenotazione = data;                
             });
-        });
-        this.formVisible = true
+        });        
     }
 
     modificaPrenotazione(form: NgForm, id: number) {
@@ -59,10 +45,5 @@ export class PrenotazioneDetailsComponent implements OnInit {
 
     formatData(data: string) {
         return this.prenotazioniServ.formatData(data);
-    }
-
-    chiudi() {
-        alert("chiudi")
-    }
-
+    }    
 }

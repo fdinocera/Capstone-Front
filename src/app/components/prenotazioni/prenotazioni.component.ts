@@ -4,7 +4,6 @@ import { AuthData } from 'src/app/models/auth-data.interface';
 import { PrenotazioneService } from 'src/app/service/prenotazione.service';
 import { Prenotazione } from 'src/app/models/prenotazione.interface';
 
-
 @Component({
 	selector: 'app-prenotazioni',
 	templateUrl: './prenotazioni.component.html',
@@ -16,14 +15,8 @@ export class PrenotazioniComponent implements OnInit {
 	prenotazioni: Prenotazione[] = [];	
 
 	constructor(private prenotazioneSrv: PrenotazioneService) { }
-	//mobile = false;
-
-
-	ngOnInit(): void {
-
-		// if (window.screen.width < 993) { // 768px portrait
-		// 	this.mobile = true;
-		// }
+	
+	ngOnInit(): void {	
 
 		//sottoscrive notifica variazioni delle prenotazioni
 		this.prenotazioneSrv.nuovePrenotazioni$.subscribe(data => {

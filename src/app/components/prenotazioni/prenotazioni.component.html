@@ -1,10 +1,3 @@
-<!-------------------------------------------------------
-
-    P R E N O T A Z I O N I
-
---------------------------------------------------------->
-
-
 <div *ngIf="prenotazioni">
     <div class="container mt-5">
 
@@ -15,57 +8,6 @@
                     data-bs-target="#exampleModal">Aggiungi</button>
             </div>
         </div>
-
-
-        <!-- versione mobile fino a 992px -->
-        <!-- <div *ngIf="mobile">
-            <div class="row d-flex border-bottom p-3 align-content-center align-items-center"
-                *ngFor="let prenotazione of prenotazioni">
-
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
-                    <div class="row">
-                        <div class="col-lg-4 fw-bold">Nome ospite:</div>
-                        <div class="col-lg-8">{{ prenotazione.nomeCliente }}</div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-4 fw-bold">Adulti:</div>
-                        <div class="col-lg-8 ">{{ prenotazione.adulti }}</div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-4 fw-bold">Bambini:</div>
-                        <div class="col-lg-8 ">{{ prenotazione.bambini }}</div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-4 fw-bold">Check-in:</div>
-                        <div class="col-lg-8 ">{{formatData( prenotazione.checkIn) }}</div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-4 fw-bold">Check-out:</div>
-                        <div class="col-lg-8 ">{{ formatData(prenotazione.checkOut) }}</div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-4 fw-bold">Costo:</div>
-                        <div class="col-lg-8 ">€ {{ prenotazione.costoSoggiorno| number:'1.2-2' }}</div>                                            
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-4 fw-bold">Piattaforma:</div>
-                        <div class="col-lg-8 ">{{ prenotazione.piattaforma }}</div>
-                    </div>
-                    <div class="row mt-4">
-                        <div class="col-lg-4">
-                            <button [routerLink]="['/prenotazioni', prenotazione.id]" class="btn_2">Modifica</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
 
         <div class="container">
             <!-- Header Row -->
@@ -79,96 +21,59 @@
                 <div class="col-lg-1 text-lg-center fw-bold">Costo</div>
                 <div class="col-lg-1 text-lg-center fw-bold">Piattaforma</div>
             </div>
-            
+
             <!-- Data Rows -->
-            <div class="row d-flex flex-md-row flex-sm-column border-bottom p-4 align-items-lg-center" *ngFor="let prenotazione of prenotazioni">
+            <div class="row d-flex flex-md-row flex-sm-column border-bottom p-4 align-items-lg-center"
+                *ngFor="let prenotazione of prenotazioni">
                 <div class="col-lg-2 mb-2 mb-lg-0 d-none d-lg-flex   ">
-                    <button [routerLink]="['/prenotazioni', prenotazione.id]" class="btn_2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Modifica</button>
+                    <button [routerLink]="['/prenotazioni', prenotazione.id]" class="btn_2" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">Modifica</button>
                 </div>
-                
+
                 <div class="col-lg-2 fw-bold">
                     <span class="d-lg-none">Nome ospite: </span>
                     <span class="fw-normal">{{ prenotazione.nomeCliente }}</span>
                 </div>
-                
+
                 <div class="col-lg-1 text-lg-center fw-bold">
                     <span class="d-lg-none">Adulti: </span>
                     <span class="fw-normal">{{ prenotazione.adulti }}</span>
                 </div>
-                
+
                 <div class="col-lg-1 text-lg-center fw-bold">
                     <span class="d-lg-none">Bambini: </span>
                     <span class="fw-normal">{{ prenotazione.bambini }}</span>
                 </div>
-                
+
                 <div class="col-lg-2 fw-bold">
                     <span class="d-lg-none">Check-in: </span>
                     <span class="fw-normal">{{ formatData(prenotazione.checkIn) }}</span>
                 </div>
-                
+
                 <div class="col-lg-2 fw-bold">
                     <span class="d-lg-none">Check-out: </span>
                     <span class="fw-normal">{{ formatData(prenotazione.checkOut) }}</span>
                 </div>
-                
+
                 <div class="col-lg-1 text-lg-center fw-bold">
                     <span class="d-lg-none">Costo: </span>
                     <span class="fw-normal">{{ prenotazione.costoSoggiorno | number:'1.2-2' }}</span>
                 </div>
-                
+
                 <div class="col-lg-1 text-lg-center fw-bold">
                     <span class="d-lg-none">Piattaforma: </span>
                     <span class="fw-normal">{{ prenotazione.piattaforma }}</span>
                 </div>
 
                 <div class="col-lg-2 mt-2 mb-lg-0 d-flex d-lg-none">
-                    <button [routerLink]="['/prenotazioni', prenotazione.id]" class="btn_2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Modifica</button>
+                    <button [routerLink]="['/prenotazioni', prenotazione.id]" class="btn_2" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">Modifica</button>
                 </div>
             </div>
-        </div>
-        
-
-
-        <div>
-            <!-- <div class="row d-flex flex-md-row flex-sm-column border-bottom p-4" *ngFor="let prenotazione of prenotazioni">
-            
-
-                <div class="col-lg-2">
-                    <button [routerLink]="['/prenotazioni', prenotazione.id]" class="btn_2" data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop">Modifica</button>
-                </div>
-                
-                <div class="col-lg-2 fw-bold">                  Nome ospite: <span class="fw-normal">{{ prenotazione.nomeCliente }}</span></div>
-                <div class="col-lg-1 text-lg-center fw-bold">   Adulti: <span class="fw-normal">{{ prenotazione.adulti }}</span></div>
-                <div class="col-lg-1 text-lg-center fw-bold">   Bambini: <span class="fw-normal">{{ prenotazione.bambini }}</span></div>
-                <div class="col-lg-2 fw-bold">                  Check-in: <span class="fw-normal">{{ formatData(prenotazione.checkIn) }}</span></div>
-                <div class="col-lg-2 fw-bold">                  Check-out: <span class="fw-normal">{{ formatData(prenotazione.checkOut) }}</span></div>
-                <div class="col-lg-1 text-lg-center fw-bold">   Costo: <span class="fw-normal">{{ prenotazione.costoSoggiorno | number:'1.2-2' }}</span></div>
-                <div class="col-lg-1 text-lg-center fw-bold">   Piattaforma: <span class="fw-normal">{{ prenotazione.piattaforma }}</span></div>
-            </div> -->
-
-            <!-- <div class="row d-flex border-bottom p-3 align-content-center align-items-center"
-                *ngFor="let prenotazione of prenotazioni">
-
-                <div class="col-lg-2 ">
-                    <button [routerLink]="['/prenotazioni', prenotazione.id]" class="btn_2" data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop">Modifica</button>
-                </div>
-                <div class="col-lg-2 ">{{ prenotazione.nomeCliente }}</div>
-                <div class="col-lg-1  text-lg-center">{{ prenotazione.adulti }}</div>
-                <div class="col-lg-1  text-lg-center">{{ prenotazione.bambini }}</div>
-                <div class="col-lg-2 ">{{ formatData(prenotazione.checkIn) }}</div>
-                <div class="col-lg-2 ">{{ formatData(prenotazione.checkOut) }}</div>
-                <div class="col-lg-1  text-lg-center">€ {{ prenotazione.costoSoggiorno | number:'1.2-2' }}</div>
-                <div class="col-lg-1  text-lg-center">{{ prenotazione.piattaforma }}</div>
-            </div> -->
         </div>
     </div>
 </div>
 
-
-
-<!-- PRIMA MODALE: AGGIUNGI PRENOTAZIONE -->
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
     data-bs-backdrop="static" data-bs-keyboard="false">

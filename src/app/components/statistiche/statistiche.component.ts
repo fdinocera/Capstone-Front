@@ -10,11 +10,6 @@ import { Chart } from 'chart.js/auto';
 })
 export class StatisticheComponent implements OnInit {
 
-
-
-    //flag mobile
-    mobile = false;
-
     //grafici
     ch1!: Chart;
     ch2!: Chart;
@@ -39,10 +34,6 @@ export class StatisticheComponent implements OnInit {
     constructor(private prenotazioneService: PrenotazioneService) { }
 
     ngOnInit() {
-        if (window.screen.width < 992) {
-            this.mobile = true;
-        }
-
         this.calcolaDatiPerAnno(this.annoCorrente);
         this.ch1 = this.creaGrafico("myChart1", "", this.mesi);
         this.ch2 = this.creaGrafico("myChart2", "", this.mesi);
